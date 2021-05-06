@@ -7,10 +7,51 @@
 *{
     margin: 0;
     padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root{
+    --font-primary: "Baloo da 2", serif;
+    --font-secudary: "Josefin Slab", serif;
+    --font-action: "Muli", serif;
 }
 
 body{
     font-size: 16px;
+}
+
+.hamburguer{
+    width: 2rem;
+    height: 2.5rem;
+    position: fixed;
+    z-index: 100;
+    right: 3rem;
+    top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+.line{
+    border-radius: 50px;
+    width: 100%;
+    background-color: #fff;
+    height: .05rem;
+    box-shadow: 0.1rem 0.1rem 1px #000;
+}
+
+.show-menu #line1 {
+    transform: translate(.4rem, .4rem) rotate(45deg);
+}
+.show-menu #line3 {
+    transform: translate(.2rem, -.5rem) rotate(-45deg);
+}
+
+.show-menu #line2 {
+    opacity: 0;
+    visibility: hidden;
 }
 
 header{
@@ -52,7 +93,7 @@ header{
 .banner h1{
     color: #fff;
     font-size: 3.5rem;
-    font-family: "Baloo da 2", serif;
+    font-family: var(--font-primary);
     font-weight: 100;
     text-shadow: .2rem .3rem 2px rgba(0, 0, 0, .4);
     line-height: 5rem;
@@ -63,7 +104,7 @@ header{
 
 .banner p{
     animation: moveBanner 1s 0.7s forwards;
-    font-family: "Josefin Slab", serif;
+    font-family: var(--font-secudary);
     color: #fff;
     font-size: 2rem;
     text-shadow: .2rem .2rem rgba(0, 0, 0, .4);
@@ -73,24 +114,28 @@ header{
 
 .banner button{
     animation: moveBanner 1s 0.9s forwards;
-    font-family: "Muli", serif;
+    font-family: var(--font-action);
     color: #fff;
     font-size: 1rem;
     letter-spacing: .1rem;
     border-radius: 5px;
     text-transform: uppercase;
-    background: #6a3093;
-    background: -webkit-linear-gradient(to right, #a044ff, #6a3093);
-    background: linear-gradient(to right, #a044ff, #6a3093);
+    background: #bc4e9c;
+    background: -webkit-linear-gradient(to right, #f80759, #bc4e9c);
+    background: linear-gradient(to right, #f80759, #bc4e9c); 
     padding: .8rem 2.5rem;
-    border: nome;
     cursor: pointer;
     opacity: 0;
+    transition: all .8s ;      
+    border: 1px white solid;
 }
 
 .banner button:hover{
-    color: black;
-    opacity: .8;
+    background: #FF0099;
+    background: -webkit-linear-gradient(to right, #493240, #FF0099);
+    background: linear-gradient(to right, #493240, #FF0099);
+    border-radius: 15px;
+    border: 1px black solid;
 }
 
 @keyframes moveBanner{
@@ -101,4 +146,67 @@ header{
         transform: translatey(1) rotateY(0);
         opacity: 1;
     }
+}
+
+.sidebar{
+    width: 20rem;
+    height: 100vh;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    right: -20rem;
+    transition: all .8s;
+}
+
+.show-menu.sidebar{
+    right: 0;
+}
+
+.menu{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-item{
+    text-align: center;
+    margin-bottom: .5rem;
+}
+
+.menu-link{
+    font-family: var(--font-action);
+    font-size: 2rem;
+    color: #555;
+    transition: color .4s;
+}
+
+.menu-link:hover{
+    color: #ff0080;
+}
+
+.social-media{
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+} 
+
+.social-media i{
+    border-radius: 50%;
+    color: #000;
+    height: 5rem;
+    width: 5rem;
+    font-size: 2.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s;    
+    transition: color 1s;
+}
+
+.social-media i:hover{
+    opacity: .8;
+    color: #f80759;
 }
