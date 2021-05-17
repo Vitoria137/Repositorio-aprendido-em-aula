@@ -556,7 +556,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("/img/bg-orcamento.jpg");
+  background: url("img/bg-orcamento.jpg");
   object-fit: cover;
 }
 
